@@ -17,7 +17,7 @@ def obter_tempo(cidade):
             print(f"Tempo atual em {cidade.capitalize()}:")
             print(f"Temperatura: {temperatura}ºC")
             print(f"Descrição: {descricao.capitalize()}")
-            print("-"**30 + "\n")
+            print("-"*30 + "\n")
         else:
             print("\nErro: Cidade não encontrada ou chave de API inválida.")
 
