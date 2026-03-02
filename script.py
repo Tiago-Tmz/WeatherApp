@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime, timezone
 
 def obter_tempo(cidade):
     api_key = "de8898ac913d6229e6318239e4e47290" 
@@ -24,7 +25,6 @@ def obter_tempo(cidade):
                 wind = dados.get('wind', {})
                 sys = dados.get('sys', {})
 
-                from datetime import datetime, timezone
                 fmt = lambda ts: datetime.fromtimestamp(ts, timezone.utc).strftime('%H:%M:%S') if ts else 'N/A'
 
                 print(f"\n--- Detalhes meteorológicos de {cidade.capitalize()} ---")
