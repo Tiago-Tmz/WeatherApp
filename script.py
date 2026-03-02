@@ -11,15 +11,16 @@ def obter_tempo(cidade):
         dados = resposta.json()
 
         if resposta.status_code == 200:
+            cidade_capitalize = cidade.capitalize()
             temperatura = dados['main']['temp']
             descricao = dados['weather'][0]['description']
             
             print("\n" + "-"*30)
-            print(f"Tempo atual em {cidade.capitalize()}:")
+            print(f"Tempo atual em {cidade_capitalize}:")
             print(f"Temperatura: {temperatura}ºC")
             print(f"Descrição: {descricao.capitalize()}")
             print("-"*30 + "\n")
-            escolha = input("Escreva '1' para ver todos os detalhes meteorológicos da cidade : " + cidade.capitalize() + ", 'sair' para fechar ou outra cidade para consultar: ")
+            escolha = input("Escreva '1' para ver todos os detalhes meteorológicos da cidade : " + cidade_capitalize + ", 'sair' para fechar ou outra cidade para consultar: ")
             if escolha == "1":
                 main = dados.get('main', {})
                 wind = dados.get('wind', {})
@@ -27,7 +28,7 @@ def obter_tempo(cidade):
 
                 fmt = lambda ts: datetime.fromtimestamp(ts, timezone.utc).strftime('%H:%M:%S') if ts else 'N/A'
 
-                print(f"\n--- Detalhes meteorológicos de {cidade.capitalize()} ---")
+                print(f"\n--- Detalhes meteorológicos de {cidade_capitalize} ---")
                 if 'feels_like' in main:
                     print(f"Sensação térmica: {main['feels_like']}ºC")
                 if 'temp_min' in main and 'temp_max' in main:
