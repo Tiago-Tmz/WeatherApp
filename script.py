@@ -1,10 +1,17 @@
+import os
 import requests
 from datetime import datetime, timezone
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 def obter_tempo(cidade):
-    api_key = "de8898ac913d6229e6318239e4e47290" 
-    
-    url = f"http://api.openweathermap.org/data/2.5/weather?q={cidade}&appid={api_key}&units=metric&lang=pt"
+    api_key = os.getenv("OPENWEATHER_API_KEY")
+    if not api_key:
+        api_key = input("Insira a sua chave de API OpenWeatherMap: ").strip()
+
+    url = f"https://api.openweathermap.org/data/2.5/weather?q={cidade}&appid={api_key}&units=metric&lang=pt"
 
     try:
         resposta = requests.get(url)

@@ -15,21 +15,33 @@ Aplicação de linha de comandos em Python para consulta de condições meteorol
 
 ## Pré-requisitos
 
-É necessário ter o Python instalado no sistema. O script requer a biblioteca 'requests'g para efetuar as chamadas à API.
+É necessário ter o Python instalado no sistema. As dependências estão listadas em `requirements.txt`.
 
-Para instalar as dependências necessárias, execute o seguinte comando no terminal:
+Instale-as com:
 
-pip install requests
+```
+pip install -r requirements.txt
+```
+
+### Segurança da chave da API
+
+Não inclua a sua chave de API diretamente no código. Defina a variável de ambiente `OPENWEATHER_API_KEY` ou crie um ficheiro `.env` com a linha:
+
+```
+OPENWEATHER_API_KEY=suachaveaqui
+```
+
+O script carrega automaticamente variáveis de um `.env` quando presente.
 
 ## Como Executar
 
-1. Transfira o ficheiro Python para o seu computador.
-2. Abra o terminal e navegue até à pasta onde o ficheiro se encontra.
-3. Execute o script com o comando:
+1. Abra o terminal e navegue até à pasta do projecto.
+2. Defina a variável de ambiente `OPENWEATHER_API_KEY` ou crie um `.env` como indicado acima.
+3. Execute o script com:
 
+```
 python script.py
-
-*(Nota: Certifique-se de que o nome do ficheiro corresponde ao que guardou).*
+```
 
 ## Tecnologias
 
